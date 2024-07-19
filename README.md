@@ -50,9 +50,19 @@
 
 - É imprescindível ter o Docker instalado e iniciado em seu computador.
 
-- Navegue para o diretório em que se encontram os arquivos Dockerfile e requirements.txt, executar como **administrador** o comando abaixo, para construção da imagem Docker:  
+- Após clonar o repositório, navegue para o diretório em que se encontram os arquivos Dockerfile e requirements.txt, executar como **administrador** os comandos abaixo, para construção da imagem Docker:  
+  
+  - Construir imagem  Docker:
+    
+    docker build -t api-rest-freegames .
 
-  docker build -t api-rest-freegames .
+  - Criar uma rede Docker:
+  
+    docker network create minha_rede
+
+  - Executar o container
+    
+    docker run -d --name api-rest-freegames --network minha_rede -p 5000:5000 api-rest-freegames
 
 - No mesmo diretório executar como **administrador** o comando abaixo, para execução do container:  
   

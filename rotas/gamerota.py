@@ -1,5 +1,7 @@
 import  json
-import  requests
+import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from datetime                               import datetime
 from serverapp.flaskapp                     import *
 from sqlalchemy.exc                         import IntegrityError
@@ -65,7 +67,7 @@ def busca_free_to_game_response(idgame):
        
         # Retorna dicionário com os dados do game
         logger.info(f"Game id {idgame} econtrado")
-        return json.loads(responsereq.text)       
+        return json.loads(responsereq.text)      
 
 #################################################################################################################
 #####                                               ROTAS 
